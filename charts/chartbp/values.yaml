@@ -96,8 +96,8 @@ volumes: []
 #     secretName: mysecret
 #     optional: false
 
-envFrom:
-  secretRef: bpay-backend-bnc
+
+secretRef: bpay-backend-bnc
 
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts: []
