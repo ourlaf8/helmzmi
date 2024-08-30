@@ -5,12 +5,13 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: 730335487630.dkr.ecr.ap-southeast-1.amazonaws.com
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "bpay-backend-bnc:latest"
 
-imagePullSecrets: []
+imagePullSecrets:
+  - name: regcred
 nameOverride: ""
 fullnameOverride: ""
 
@@ -41,7 +42,8 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 80
+  port: 3001
+  portGrpc: 50051
 
 ingress:
   enabled: false
@@ -88,11 +90,14 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 # Additional volumes on the output Deployment definition.
-volumes: []
+volumes: [] 
 # - name: foo
 #   secret:
 #     secretName: mysecret
 #     optional: false
+
+envFrom:
+  secretRef: bpay-backend-bnc
 
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts: []
