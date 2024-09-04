@@ -73,14 +73,6 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
-livenessProbe:
-  httpGet:
-    path: /
-    port: http
-readinessProbe:
-  httpGet:
-    path: /
-    port: http
 
 autoscaling:
   enabled: false
@@ -91,6 +83,10 @@ autoscaling:
 
 # Additional volumes on the output Deployment definition.
 volumes: [] 
+# - name: bpay-backend-bnc-volumes
+#   secret:
+#     secretName: bpay-backend-bnc
+#     optional: false
 # - name: foo
 #   secret:
 #     secretName: mysecret
@@ -101,6 +97,9 @@ secretRef: bpay-backend-bnc
 
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts: []
+# - name: bpay-backend-bnc-volumes
+#   mountPath: "/etc/bpay-backend-bnc-volumes"
+#   readOnly: true
 # - name: foo
 #   mountPath: "/etc/foo"
 #   readOnly: true
