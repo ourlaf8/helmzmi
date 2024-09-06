@@ -43,6 +43,9 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+            - name: {{ .Values.service.namePort2 }}
+              containerPort: {{ .Values.service.portGrpc }}
+              protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.volumeMounts }}

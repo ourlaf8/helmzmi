@@ -44,6 +44,8 @@ service:
   type: ClusterIP
   port: 3001
   portGrpc: 50051
+  namePort2: "grpc"
+
 
 ingress:
   enabled: false
