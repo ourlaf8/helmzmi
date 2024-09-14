@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ .Values.appLabels.app }}
   labels:
-    {{- include "chartbp.labels" . | nindent 4 }}
+    {{- include "chartbp2.labels" . | nindent 4 }}
     app: {{ .Values.appLabels.app }}
     project: {{ .Values.appLabels.project }}
     env: {{ .Values.appLabels.env }}
@@ -11,8 +11,14 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.port }}
+      targetPort: http
       protocol: TCP
       name: http
+  {{- if .Values.grpcService.enabled }}
+    - port: {{ .Values.grpcService.port }}
+      targetPort: {{ .Values.grpcService.port }}
+      protocol: TCP
+      name: {{ .Values.grpcService.type }}
+  {{- end }}
   selector:
-    {{- include "chartbp.selectorLabels" . | nindent 4 }}
+    {{- include "chartbp2.selectorLabels" . | nindent 4 }}

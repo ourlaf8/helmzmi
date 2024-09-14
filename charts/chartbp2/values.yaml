@@ -15,14 +15,23 @@ imagePullSecrets:
 
 appLabels:
   app: nginx
-  project: bpay
+  project: myproject
   env: staging
 
 service:
   type: ClusterIP
   port: 3001
 
+grpcService:
+  enabled: true
+  type: grpc
+  port: 50051
+
 nodeSelector: {}
+
+
+
+secretRef: nginx
 
 # Additional volumes on the output Deployment definition.
 volumes:
@@ -35,8 +44,6 @@ volumes:
 #     secretName: mysecret
 #     optional: false
 
-
-secretRef: nginx
 
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts:
