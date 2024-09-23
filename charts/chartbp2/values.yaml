@@ -34,11 +34,11 @@ nodeSelector: {}
 secretRef: nginx
 
 # Additional volumes on the output Deployment definition.
-volumes:
-- name: nginx-volumes
-  secret:
-    secretName: nginx
-    optional: false
+volumes: []
+# - name: nginx-volumes
+#   secret:
+#     secretName: nginx
+#     optional: false
 # - name: foo
 #   secret:
 #     secretName: mysecret
@@ -46,10 +46,10 @@ volumes:
 
 
 # Additional volumeMounts on the output Deployment definition.
-volumeMounts:
-- name: nginx-volumes
-  mountPath: "/etc/nginx-volumes"
-  readOnly: true
+volumeMounts: []
+# - name: nginx-volumes
+#   mountPath: "/etc/nginx-volumes"
+#   readOnly: true
 # - name: foo
 #   mountPath: "/etc/foo"
 #   readOnly: true
