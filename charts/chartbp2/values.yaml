@@ -21,11 +21,13 @@ appLabels:
 service:
   type: ClusterIP
   port: 3001
+  nodePort: 30001
 
 grpcService:
   enabled: true
   type: grpc
   port: 50051
+  nodePort: 30051
 
 nodeSelector: {}
 

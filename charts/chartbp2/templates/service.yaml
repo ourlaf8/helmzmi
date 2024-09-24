@@ -11,11 +11,17 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
+    {{ if eq .Values.service.type "NodePort" }}
+      nodePort: {{ .Values.service.nodePort }}
+  {{ end }}
       targetPort: http
       protocol: TCP
       name: http
   {{- if .Values.grpcService.enabled }}
     - port: {{ .Values.grpcService.port }}
+    {{ if eq .Values.service.type "NodePort" }}
+      nodePort: {{ .Values.grpcService.nodePort}}
+  {{ end }}
       targetPort: {{ .Values.grpcService.port }}
       protocol: TCP
       name: {{ .Values.grpcService.type }}
