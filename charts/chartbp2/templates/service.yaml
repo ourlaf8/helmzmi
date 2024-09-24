@@ -11,7 +11,7 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-    {{ if eq .Values.service.type "NodePort" }}
+  {{ if eq .Values.service.type "NodePort" }}
       nodePort: {{ .Values.service.nodePort }}
   {{ end }}
       targetPort: http
@@ -19,9 +19,6 @@ spec:
       name: http
   {{- if .Values.grpcService.enabled }}
     - port: {{ .Values.grpcService.port }}
-    {{ if eq .Values.service.type "NodePort" }}
-      nodePort: {{ .Values.grpcService.nodePort}}
-  {{ end }}
       targetPort: {{ .Values.grpcService.port }}
       protocol: TCP
       name: {{ .Values.grpcService.type }}
