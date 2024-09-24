@@ -14,9 +14,9 @@ entries:
   chartbp2:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-09-24T22:17:44.84525818+07:00"
+    created: "2024-09-24T22:21:57.397640167+07:00"
     description: A Helm chart for Kubernetes
-    digest: a4335437984d5397b6492867093ac0b5537831082a9db26d21e60e7fb2956c03
+    digest: 06c8b5d109d289cddecd23003d91ad65b61fe869999c8ce9fc3b2364ec999a0d
     name: chartbp2
     type: application
     urls:

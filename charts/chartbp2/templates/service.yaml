@@ -20,7 +20,7 @@ spec:
   {{- if .Values.grpcService.enabled }}
     - port: {{ .Values.grpcService.port }}
     {{ if eq .Values.service.type "NodePort" }}
-      nodePort: {{ .Values.service.nodePort }}
+      nodePort: {{ .Values.grpcService.nodePort }}
     {{end}}
       targetPort: {{ .Values.grpcService.port }}
       protocol: TCP
